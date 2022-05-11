@@ -4,7 +4,7 @@ namespace Alaska.Web.Models
 {
     public class Employee
     {
-        public int CodEmpleado { get; set; }
+        public int Id { get; set; }
         [Required]
         public string NomEmpleado { get; set; }
         [Required]

@@ -4,7 +4,7 @@ namespace Alaska.Web.Models
 {
     public class City
     {
-        public int CodCiudad { get; set; }
+        public int Id { get; set; }
         [Required]
         public string NomCiudad { get; set; }
     }

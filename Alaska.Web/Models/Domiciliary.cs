@@ -2,7 +2,7 @@
 {
     public class Domiciliary: Employee
     {
-        public int CodDomiciliario { get; set; }
+        public int Id { get; set; }
         public string Direccion { get; set; }
     }
 }

@@ -4,7 +4,7 @@ namespace Alaska.Web.Models
 {
     public class Supplier
     {
-        public int CodProveedor { get; set; }
+        public int Id { get; set; }
         [Required]
         [MaxLength(255)]
         public int NIT { get; set; }

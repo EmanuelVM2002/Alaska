@@ -2,7 +2,7 @@
 {
     public class Icy
     {
-        public int CodHelado { get; set; }
+        public int Id { get; set; }
         public double Valor { get; set; }
     }
 }

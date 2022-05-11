@@ -3,7 +3,7 @@
     public class Restaurant
     {
         
-        public int CodRestaurante { get; set; }
+        public int Id { get; set; }
         public string NomRestaurante { set; get; }
 
     }
