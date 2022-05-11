@@ -2,6 +2,6 @@
 {
     public class Manager: Employee
     {
-        public int CodEncargado { get; set; }
+        public int Id { get; set; }
     }
 }
