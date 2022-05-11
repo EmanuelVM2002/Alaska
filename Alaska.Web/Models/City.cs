@@ -7,5 +7,7 @@ namespace Alaska.Web.Models
         public int Id { get; set; }
         [Required]
         public string NomCiudad { get; set; }
+
+        //todo good
     }
 }
