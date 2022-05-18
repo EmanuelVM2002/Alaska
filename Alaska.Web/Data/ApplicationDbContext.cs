@@ -1,9 +1,11 @@
-﻿using Alaska.Web.Models;
+﻿using Alaska.Web.Data.Entities;
+using Alaska.Web.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace Alaska.Web.Data
 {
-    public class ApplicationDbContext : DbContext
+    public class ApplicationDbContext : IdentityDbContext<User>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> option) : base(option)
         { }
