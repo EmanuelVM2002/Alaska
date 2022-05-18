@@ -54,7 +54,7 @@ namespace Alaska.Web.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nom,Apellido,Cedula,Direccion")] Client client)
+        public async Task<IActionResult> Create([Bind("Id,Nombre,Apellido,Cedula,Direccion")] Client client)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +86,7 @@ namespace Alaska.Web.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nom,Apellido,Cedula,Direccion")] Client client)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Nombre,Apellido,Cedula,Direccion")] Client client)
         {
             if (id != client.Id)
             {
