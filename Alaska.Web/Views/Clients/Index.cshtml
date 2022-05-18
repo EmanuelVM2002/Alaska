@@ -1,14 +1,18 @@
 ﻿@model IEnumerable<Alaska.Web.Models.Client>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css"
+href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+<link rel="stylesheet" href="~/lib/Font-awesome/css/fontawesome.css"/>
+<link rel="stylesheet" href="~/lib/Font-Awesome/css/regular.min.css">
+<link rel="stylesheet" href="~/lib/Font-Awesome/css/solid.min.css">
+<br/>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Crear Cliente";
 }
 
-<h1>Index</h1>
+<h1>Registro De Clientes ------------------------- <a asp-action="Create" class="btn btn-primary btn-lg"><i class="fa-solid fa-circle-user">  Nuevo Cliente</i></a></h1>
 
-<p>
-    <a asp-action="Create" class="bi bi-person-plus">Crear</a>
-</p>
 <table class="table">
     <thead>
         <tr>
@@ -43,9 +47,9 @@
                 @Html.DisplayFor(modelItem => item.Direccion)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></a> |
+                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info"><i class="fa-solid fa-circle-info"></i></a> |
+                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></a>
             </td>
         </tr>
 }
