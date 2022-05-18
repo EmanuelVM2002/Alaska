@@ -109,10 +109,6 @@ namespace Alaska.Web.Migrations
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)");
 
-                    b.Property<string>("Discriminator")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int>("EdadEmpleado")
                         .HasColumnType("int");
 
@@ -126,8 +122,6 @@ namespace Alaska.Web.Migrations
                         .IsUnique();
 
                     b.ToTable("Employee");
-
-                    b.HasDiscriminator<string>("Discriminator").HasValue("Employee");
                 });
 
             modelBuilder.Entity("Alaska.Web.Models.Icy", b =>
@@ -272,23 +266,6 @@ namespace Alaska.Web.Migrations
                         .IsUnique();
 
                     b.ToTable("TypeIcy");
-                });
-
-            modelBuilder.Entity("Alaska.Web.Models.Domiciliary", b =>
-                {
-                    b.HasBaseType("Alaska.Web.Models.Employee");
-
-                    b.Property<string>("Direccion")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasDiscriminator().HasValue("Domiciliary");
-                });
-
-            modelBuilder.Entity("Alaska.Web.Models.Manager", b =>
-                {
-                    b.HasBaseType("Alaska.Web.Models.Employee");
-
-                    b.HasDiscriminator().HasValue("Manager");
                 });
 #pragma warning restore 612, 618
         }

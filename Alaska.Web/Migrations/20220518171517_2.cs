@@ -4,7 +4,7 @@
 
 namespace Alaska.Web.Migrations
 {
-    public partial class _1 : Migration
+    public partial class _2 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -59,9 +59,7 @@ namespace Alaska.Web.Migrations
                     NomEmpleado = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CedEmpleado = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
                     ApeEmpleado = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    EdadEmpleado = table.Column<int>(type: "int", nullable: false),
-                    Discriminator = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Direccion = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    EdadEmpleado = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {

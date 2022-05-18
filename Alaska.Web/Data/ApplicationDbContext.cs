@@ -25,22 +25,12 @@ namespace Alaska.Web.Data
                 .IsUnique();
 
             base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<Domiciliary>()
-                .HasIndex(t => t.Id)
-                .IsUnique();
-
-            base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Employee>()
                 .HasIndex(t => t.Id)
                 .IsUnique();
 
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Icy>()
-                .HasIndex(t => t.Id)
-                .IsUnique();
-
-            base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<Manager>()
                 .HasIndex(t => t.Id)
                 .IsUnique();
 
@@ -77,10 +67,8 @@ namespace Alaska.Web.Data
         public DbSet<Alaska.Web.Models.Bill> Bill { get; set; }
         public DbSet<Alaska.Web.Models.City> City { get; set; }
         public DbSet<Alaska.Web.Models.Client> Client { get; set; }
-        public DbSet<Alaska.Web.Models.Domiciliary> Domiciliary { get; set; }
         public DbSet<Alaska.Web.Models.Employee> Employee { get; set; }
         public DbSet<Alaska.Web.Models.Icy> Icy { get; set; }
-        public DbSet<Alaska.Web.Models.Manager> Manager { get; set; }
         public DbSet<Alaska.Web.Models.Order> Order { get; set; }
         public DbSet<Alaska.Web.Models.Product> Product { get; set; }
         public DbSet<Alaska.Web.Models.Restaurant> Restaurant { get; set; }
