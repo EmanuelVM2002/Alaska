@@ -35,7 +35,7 @@ ViewData["Title"] = "Index";
                                     @Html.DisplayFor(modelItem => item.Name)
                                 </td>
                                 <td>
-                                    <img src="@item.ImageFullPath" style="width:100px;height:100px;max- width: 100%; height: auto;" />
+                                    <img src="@item.ImageFullPath" style="width:100px;height:100px; height: auto;" />
                                 </td>
                                 <td>
                                     <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning"><i class="fas fa-edit"></i></a>
