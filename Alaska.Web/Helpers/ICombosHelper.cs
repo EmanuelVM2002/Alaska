@@ -1,0 +1,11 @@
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Collections.Generic;
+
+namespace Alaska.Web.Helpers
+{
+    public interface ICombosHelper
+    {
+        IEnumerable<SelectListItem> GetComboCategories();
+    }
+
+}
