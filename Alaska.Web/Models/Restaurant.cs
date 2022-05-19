@@ -1,4 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace Alaska.Web.Models
 {
@@ -9,6 +11,8 @@ namespace Alaska.Web.Models
         [Required(ErrorMessage = "El campo {0} es obligatorio.")]
         [Display(Name = "Nombre del Restaurante")]
         public string NomRestaurante { set; get; }
-
+        [JsonIgnore]
+        [NotMapped]
+        public int IdCity { get; set; }
     }
 }

@@ -9,14 +9,61 @@
 <div>
     <h4>City</h4>
     <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
+    <dl class="dl-horizontal">
+        <dt>
             @Html.DisplayNameFor(model => model.NomCiudad)
         </dt>
-        <dd class = "col-sm-10">
+        <dd>
             @Html.DisplayFor(model => model.NomCiudad)
         </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.RestaurantsNumber)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.RestaurantsNumber)
+        </dd>
     </dl>
+</div>
+<div>
+    <a asp-action="AddRestaurant" asp-route-id="@Model.Id">Nuevo Restaurante</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
+<hr/>
+<div class="dl-horizontal">
+    <div class="col-md-12">
+        <div class="fa-cpanel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Restaurantes</h3>
+            </div>
+            <div class="panel-body">
+                <table class="table table-hover table-responsive table-striped" id="MyTable">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Restaurants.FirstOrDefault().NomRestaurante)
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.Restaurants)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.NomRestaurante)
+                                </td>
+                                <td>
+                                    <a asp-action="EditRestaurant" asp-route-id="@item.Id">Edit</a> |
+                                    <a asp-action="DetailsRestaurant" asp-route-id="@item.Id">Details</a> |
+                                    <a asp-action="DeleteRestaurant" asp-route-id="@item.Id">Delete</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </div>
 <div>
     <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
