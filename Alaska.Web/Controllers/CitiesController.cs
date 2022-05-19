@@ -10,6 +10,9 @@ using Alaska.Web.Models;
 
 namespace Alaska.Web.Controllers
 {
+    using Microsoft.AspNetCore.Authorization;
+
+    [Authorize(Roles = "Admin")]
     public class CitiesController : Controller
     {
         private readonly ApplicationDbContext _context;

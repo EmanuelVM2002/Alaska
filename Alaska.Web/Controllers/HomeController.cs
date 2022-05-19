@@ -27,5 +27,12 @@ namespace Alaska.Web.Controllers
         {
             return View();
         }
+
+        [Route("error/404")]
+        public IActionResult Error404()
+        {
+            return View();
+        }
+
     }
 }

@@ -10,7 +10,7 @@ namespace Alaska.Web.Models
         [Display(Name = "Image")]
 
         public string ImageFullPath => ImageId == Guid.Empty
-            ? "$https://localhost:44340/images/no-image.png"// luego cambiamos esta url por la de Azure
+            ? "$https://alaskaweb20220519144510.azurewebsites.net"// luego cambiamos esta url por la de Azure
             : $"https://alaskdemo.blob.core.windows.net/products/{ImageId}";
     }
 }

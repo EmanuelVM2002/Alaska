@@ -10,6 +10,10 @@ using Alaska.Web.Models;
 
 namespace Alaska.Web.Controllers
 {
+    using Microsoft.AspNetCore.Authorization;
+
+    [Authorize(Roles = "Admin")]
+
     public class RestaurantsController : Controller
     {
         private readonly ApplicationDbContext _context;
