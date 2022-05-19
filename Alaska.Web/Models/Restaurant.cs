@@ -11,8 +11,6 @@ namespace Alaska.Web.Models
         [Required(ErrorMessage = "El campo {0} es obligatorio.")]
         [Display(Name = "Nombre del Restaurante")]
         public string NomRestaurante { set; get; }
-        [JsonIgnore]
-        [NotMapped]
         public int IdCity { get; set; }
     }
 }

@@ -52,7 +52,7 @@ public class SeedDb
                 NomCiudad = "Cucuta",
                 Restaurants = new List<Restaurant>
                 {
-                    new Restaurant { NomRestaurante = "Alaskarmenia" }
+                    new Restaurant { NomRestaurante = "AlaskaCucuta" }
                 }
             });
             _context.City.Add(new City

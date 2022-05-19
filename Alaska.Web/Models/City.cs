@@ -1,5 +1,8 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
+
 namespace Alaska.Web.Models
 {
     public class City
@@ -10,7 +13,8 @@ namespace Alaska.Web.Models
         [Display(Name = "Nombre de la Ciudad")]
         public string NomCiudad { get; set; }
         public ICollection<Restaurant> Restaurants { get; set; }
-
+        [JsonIgnore]
+        [NotMapped]
         [DisplayName("Numero de Restaurantes")]
         public int RestaurantsNumber => Restaurants == null ? 0 : Restaurants.Count;
     }
