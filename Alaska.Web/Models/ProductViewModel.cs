@@ -11,6 +11,10 @@ namespace Alaska.Web.Models
         public int CategoryId { get; set; }
 
         public IEnumerable<SelectListItem> Categories { get; set; }
+
+        [Display(Name = "Image")]
+        public IFormFile ImageFile { get; set; }
+
     }
 
 }
