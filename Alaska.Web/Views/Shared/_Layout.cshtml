@@ -6,6 +6,10 @@
     <title>@ViewData["Title"] - Alaska.Web</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/lib/Font-awesome/css/fontawesome.css"/>
+    <link rel="stylesheet" href="~/lib/Font-Awesome/css/regular.min.css">
+    <link rel="stylesheet" href="~/lib/Font-Awesome/css/solid.min.css">
+
 </head>
 <body>
     <header>
@@ -24,7 +28,7 @@
                         @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Cities" asp-action="Index">Countries</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Cities" asp-action="Index"><i class="fa-solid fa-ice-cream">Restaurantes</i></a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Categories" asp-action="Index">Categories</a>
@@ -37,13 +41,13 @@
                         <ul class="nav navbar-nav navbar-right">
                         @if (User.Identity.IsAuthenticated)
                         {
-                        <li><a asp-area="" asp-controller="Account" asp-action="ChangeUser">@User.Identity.Name</a></li>
-                        <li><a asp-area="" asp-controller="Account" asp-action="Logout">Logout</a></li>
-                         }
-                         else
-                         {
-                         <li><a asp-area="" asp-controller="Account" asp-action="Login">Login</a></li>
-                         }    
+                            <li><a class="btn btn-outline-primary" asp-area="" asp-controller="Account" asp-action="ChangeUser">@User.Identity.Name</a></li>
+                            <li><a class="btn btn-outline-primary" asp-area="" asp-controller="Account" asp-action="Logout">Logout</a></li>
+                        }
+                        else
+                        {
+                            <li><a class="btn btn-outline-primary" asp-area="" asp-controller="Account" asp-action="Login">Inicia Sesion</a></li>
+                        }    
 
                     </ul>
                 </div>
@@ -56,7 +60,7 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+    <footer class="border-top footer text-muted bg-white">
         <div class="container">
             &copy; 2022 - Alaska.Web - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
