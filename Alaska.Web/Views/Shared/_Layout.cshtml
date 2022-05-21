@@ -16,39 +16,34 @@
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-light border-bottom box-shadow mb-3">
             <div class="container">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Alaska</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
-                </button>
+                </button> 
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
                         @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Cities" asp-action="Index"><i class="fa-solid fa-ice-cream">Restaurantes</i></a>
+                                <a class="btn btn-outline-primary" asp-area="" asp-controller="Cities" asp-action="Index"><i class="fa-solid fa-utensils"></i> Restaurantes</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Categories" asp-action="Index">Categories</a>
+                                <a class="btn btn-outline-primary" asp-area="" asp-controller="Categories" asp-action="Index"><i class="fa-solid fa-grip-lines"></i> Categorias</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Products" asp-action="Index">Products</a>
+                                <a class="btn btn-outline-primary" asp-area="" asp-controller="Products" asp-action="Index"><i class="fa-solid fa-ice-cream"></i> Productos</a>
                             </li>
                         }
                     </ul>
                         <ul class="nav navbar-nav navbar-right">
                         @if (User.Identity.IsAuthenticated)
                         {
-                            <li><a class="btn btn-outline-primary" asp-area="" asp-controller="Account" asp-action="ChangeUser">@User.Identity.Name</a></li>
-                            <li><a class="btn btn-outline-primary" asp-area="" asp-controller="Account" asp-action="Logout">Logout</a></li>
+                            <li><a class="btn btn-outline-primary" asp-area="" asp-controller="Account" asp-action="ChangeUser"><i class="fa-solid fa-at"></i> @User.Identity.Name</a></li>
+                            <li><a class="btn btn-outline-primary" asp-area="" asp-controller="Account" asp-action="Logout"><i class="fa-solid fa-user"></i> Cerrar Sesion</a></li>
                         }
                         else
                         {
-                            <li><a class="btn btn-outline-primary" asp-area="" asp-controller="Account" asp-action="Login">Inicia Sesion</a></li>
+                            <li><a class="btn btn-outline-primary" asp-area="" asp-controller="Account" asp-action="Login"><i class="fa-solid fa-user"></i> Iniciar Sesion</a></li>
                         }    
-
                     </ul>
                 </div>
             </div>
