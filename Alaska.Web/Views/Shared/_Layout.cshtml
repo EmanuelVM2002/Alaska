@@ -24,13 +24,13 @@
                         @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
                         {
                             <li class="nav-item">
-                                <a class="btn btn-outline-primary" asp-area="" asp-controller="Cities" asp-action="Index"><i class="fa-solid fa-utensils"></i> Restaurantes</a>
+                                <a class="btn btn-outline-primary font-weight-bold" asp-area="" asp-controller="Cities" asp-action="Index"><i class="fa-solid fa-utensils"></i> Restaurantes</a>
                             </li>
                             <li class="nav-item">
-                                <a class="btn btn-outline-primary" asp-area="" asp-controller="Categories" asp-action="Index"><i class="fa-solid fa-bars"></i> Categorias</a>
+                                <a class="btn btn-outline-primary font-weight-bold" asp-area="" asp-controller="Categories" asp-action="Index"><i class="fa-solid fa-bars"></i> Categorias</a>
                             </li>
                             <li class="nav-item">
-                                <a class="btn btn-outline-primary" asp-area="" asp-controller="Products" asp-action="Index"><i class="fa-solid fa-ice-cream"></i> Productos</a>
+                                <a class="btn btn-outline-primary font-weight-bold" asp-area="" asp-controller="Products" asp-action="Index"><i class="fa-solid fa-ice-cream"></i> Productos</a>
                             </li>
                         }
                     </ul>
