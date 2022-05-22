@@ -1,14 +1,13 @@
 ﻿@model IEnumerable<Alaska.Web.Models.City>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Restaurante";
 }
 <!DOCTYPE html>
-<html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Alaska.Web</title>
+    <title>@ViewData["Title"]</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
     <link rel="stylesheet" href="~/lib/Font-awesome/css/fontawesome.css"/>
@@ -16,51 +15,56 @@
     <link rel="stylesheet" href="~/lib/Font-Awesome/css/solid.min.css">
 
 </head>
-<body>
+<body background="http://www.defondos.com/images/wallpapers/fondo%20azul%20mar%20blue%20wallpaper%20(46)-829110_800.jpeg">
     <div class="row">
         <div class="col-md-12">
              <div class="panel panel-default">
                 <br />
                 <div class="panel-heading">
-                    <h1 class="panel-title font-weight-bold text-center">Registro de Restaurante Por Ciudades</h1>
+                    <h1 class="panel-title font-weight-bold text-center">Registro de Restaurante Por Ciudades</h1>                   
                 </div>
-                    <a class="font-weight-bold btn btn-warning" asp-action="Create">Agregar Nuevo Restaurante</a>
                 <br />
-                    <div class="panel-body">
-                        <table class="table table-hover table-striped table-bordered">
-                            <thead class="thead-dark">
-                                <tr class="text-center">
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.NomCiudad)
-                                    </th>
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.RestaurantsNumber)
-                                    </th>
-                                    <th>
-                                        CAMBIOS
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach (var item in Model) {
-                                <tr class="text-center">
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.NomCiudad)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.RestaurantsNumber)
-                                    </td>
-                                    <td>
-                                        <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.Id"><i class="fa-solid fa-pen-to-square"></i></a>                                      
-                                        <a class="btn btn-danger"  asp-action="Delete" asp-route-id="@item.Id"><i class="fa-solid fa-trash-can"></i></a>
-                                        <a class="btn btn-success" asp-action="Details" asp-route-id="@item.Id"><i class="fa-solid fa-circle-question"></i></a>
-                                    </td>
-                                </tr>
+                <a class="font-weight-bold btn btn-warning" asp-action="Create"><i class="fa-solid fa-plus"></i> Nuevo Ciudad</a> ---------------------------------------------------------------------------------------------------------
+                <input type="search" name="buscar1" placeholder="Buscar Ciudad">
+                <input type="submit" value="Buscar">                
+                <br />
+                <div class="panel-body">
+                    <table class="table table-hover table-striped table-bordered">
+                        <thead class="thead-dark">
+                            <tr class="text-center">
+                                <th>
+                                    @Html.DisplayNameFor(model => model.NomCiudad)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.RestaurantsNumber)
+                                </th>
+                                <th>
+                                    OPERACIONES
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        @foreach (var item in Model) {
+                            <tr style="background-color: rgb(255, 255, 255);" class="text-center">
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.NomCiudad)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.RestaurantsNumber)
+                                </td>
+                                <td>
+                                    <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.Id"><i class="fa-solid fa-pen-to-square"></i></a>                                      
+                                    <a class="btn btn-danger"  asp-action="Delete" asp-route-id="@item.Id"><i class="fa-solid fa-trash-can"></i></a>
+                                    <a class="btn btn-success" asp-action="Details" asp-route-id="@item.Id"><i class="fa-solid fa-house-chimney-user"></i></a>
+                                </td>
+                            </tr>
                         }
-                            </tbody>
-                        </table>
-                    </div>
+                        </tbody>
+                    </table>
+                </div>
              </div>
         </div>
     </div>
 </body>
+
+

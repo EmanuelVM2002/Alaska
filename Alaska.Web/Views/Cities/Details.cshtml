@@ -1,71 +1,64 @@
 ﻿@model Alaska.Web.Models.City
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Detalles";
 }
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/lib/Font-awesome/css/fontawesome.css"/>
+    <link rel="stylesheet" href="~/lib/Font-Awesome/css/regular.min.css">
+    <link rel="stylesheet" href="~/lib/Font-Awesome/css/solid.min.css">
 
-<h1>Details</h1>
-
-<div>
-    <h4>City</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.NomCiudad)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.NomCiudad)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.RestaurantsNumber)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.RestaurantsNumber)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="AddRestaurant" asp-route-id="@Model.Id">Nuevo Restaurante</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
-<hr/>
-<div class="dl-horizontal">
-    <div class="col-md-12">
-        <div class="fa-cpanel panel-default">
-            <div class="panel-heading">
-                <h3 class="panel-title">Restaurantes</h3>
-            </div>
-            <div class="panel-body">
-                <table class="table table-hover table-responsive table-striped" id="MyTable">
-                    <thead>
-                        <tr>
-                            <th>
-                                @Html.DisplayNameFor(model => model.Restaurants.FirstOrDefault().NomRestaurante)
-                            </th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var item in Model.Restaurants)
-                        {
-                            <tr>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.NomRestaurante)
-                                </td>
-                                <td>
-                                    <a asp-action="EditRestaurant" asp-route-id="@item.Id">Edit</a> |
-                                    <a asp-action="DetailsRestaurant" asp-route-id="@item.Id">Details</a> |
-                                    <a asp-action="DeleteRestaurant" asp-route-id="@item.Id">Delete</a>
-                                </td>
+</head>
+<body background="http://www.defondos.com/images/wallpapers/fondo%20azul%20mar%20blue%20wallpaper%20(46)-829110_800.jpeg">
+    <div class="row">
+        <div class="col-md-12">
+             <div class="panel panel-default">
+                <br />
+                <div class="panel-heading">
+                    <h1 class="panel-title font-weight-bold text-center">Restaurantes de @Model.NomCiudad</h1>                   
+                </div>
+                <br />
+                <a class="font-weight-bold btn btn-warning" asp-action="Index"><i class="fa-solid fa-circle-arrow-left"></i> Volver a Ciudades</a>
+                <a class="font-weight-bold btn btn-warning" asp-action="AddRestaurant" asp-route-id="@Model.Id"><i class="fa-solid fa-plus"></i> Nuevo Restaurante</a> --------------------------------------------------------------                
+                <input type="search" name="buscar1" placeholder="Buscar Restaurante">
+                <input type="submit" value="Buscar">  
+                <br />
+                <div class="panel-body">
+                    <table class="table table-hover table-striped table-bordered">
+                        <thead class="thead-dark">
+                            <tr class="text-center">
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Restaurants.FirstOrDefault().NomRestaurante)
+                                </th>
+                                <th>
+                                    OPERACIONES
+                                </th>
                             </tr>
-                        }
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.Restaurants)
+                            {
+                                <tr style="background-color: rgb(255, 255, 255);" class="text-center">
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.NomRestaurante)
+                                    </td>
+                                    <td>
+                                        <a class="btn btn-warning" asp-action="EditRestaurant" asp-route-id="@item.Id"><i class="fa-solid fa-pen-to-square"></i></a>                                      
+                                        <a class="btn btn-danger"  asp-action="DeleteRestaurant" asp-route-id="@item.Id"><i class="fa-solid fa-trash-can"></i></a>
+                                        <a class="btn btn-success" asp-action="DetailsRestaurant" asp-route-id="@item.Id"><i class="fa-solid fa-house-chimney-user"></i></a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
-    </div>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+    </div>   
+</body>
