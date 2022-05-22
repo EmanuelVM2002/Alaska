@@ -57,7 +57,7 @@ namespace Alaska.Web.Data
                     UserType = userType
                 };
 
-                await _userHelper.AddUserAsync(user, "1000761254");
+                await _userHelper.AddUserAsync(user, "3017759082");
                 await _userHelper.AddUserToRoleAsync(user, userType.ToString());
             }
 
@@ -70,43 +70,119 @@ namespace Alaska.Web.Data
             {
                 _context.City.Add(new City
                 {
+                    NomCiudad = "Apartadó",
+                });
+                _context.City.Add(new City
+                {
                     NomCiudad = "Armenia",
-                    Restaurants = new List<Restaurant>
-                    {
-                        new Restaurant { NomRestaurante = "Alaskarmenia" }
-                    }
                 });
                 _context.City.Add(new City
                 {
-                    NomCiudad = "Bogota",
-                    Restaurants = new List<Restaurant>
-                    {
-                        new Restaurant { NomRestaurante = "Bogotalaska" }
-                    }
-                });
-                _context.City.Add(new City
-                {
-                    NomCiudad = "Medellin",
-                    Restaurants = new List<Restaurant>
-                    {
-                        new Restaurant { NomRestaurante = "AlaskaMedallo" }
-                    }
-                });
-                _context.City.Add(new City
-                {
-                    NomCiudad = "Cucuta",
-                    Restaurants = new List<Restaurant>
-                    {
-                        new Restaurant { NomRestaurante = "AlaskaCucuta" }
-                    }
+                    NomCiudad = "Barrancabermeja",
                 });
                 _context.City.Add(new City
                 {
                     NomCiudad = "Barranquilla",
-                    Restaurants = new List<Restaurant>
-                    {
-                        new Restaurant { NomRestaurante = "AlaskaGood" }
-                    }
+                });
+                _context.City.Add(new City
+                {
+                    NomCiudad = "Medellín",
+                });
+                _context.City.Add(new City
+                {
+                    NomCiudad = "Bogota",
+                });
+                _context.City.Add(new City
+                {
+                    NomCiudad = "Buga",
+                });
+                _context.City.Add(new City
+                {
+                    NomCiudad = "Bucaramanga",
+                });
+                _context.City.Add(new City
+                {
+                    NomCiudad = "Calarca",
+                });
+                _context.City.Add(new City
+                {
+                    NomCiudad = "Caldas",
+                });
+                _context.City.Add(new City
+                {
+                    NomCiudad = "Cali",
+                });
+                _context.City.Add(new City
+                {
+                    NomCiudad = "Cartagena",
+                });
+                _context.City.Add(new City
+                {
+                    NomCiudad = "Cartago",
+                });
+                _context.City.Add(new City
+                {
+                    NomCiudad = "Chía",
+                });
+                _context.City.Add(new City
+                {
+                    NomCiudad = "Copacabana",
+                });
+                _context.City.Add(new City
+                {
+                    NomCiudad = "Cucuta",
+                });
+                _context.City.Add(new City
+                {
+                    NomCiudad = "Dosquebradas",
+                });
+                _context.City.Add(new City
+                {
+                    NomCiudad = "Girardot",
+                });
+                _context.City.Add(new City
+                {
+                    NomCiudad = "Ibague",
+                });
+                _context.City.Add(new City
+                {
+                    NomCiudad = "La Ceja",
+                });
+                _context.City.Add(new City
+                {
+                    NomCiudad = "Manizales",
+                });
+                _context.City.Add(new City
+                {
+                    NomCiudad = "Monteria",
+                });
+                _context.City.Add(new City
+                {
+                    NomCiudad = "Neiva",
+                });
+                _context.City.Add(new City
+                {
+                    NomCiudad = "Palmira",
+                });
+                _context.City.Add(new City
+                {
+                    NomCiudad = "Pereira",
+                });
+                _context.City.Add(new City
+                {
+                    NomCiudad = "Popayan",
+                });
+                _context.City.Add(new City
+                {
+                    NomCiudad = "Quibdo",
+                });
+                _context.City.Add(new City
+                {
+                    NomCiudad = "Sabaneta",
+                });
+                _context.City.Add(new City
+                {
+                    NomCiudad = "Yopal",
                 });
                 await _context.SaveChangesAsync();
             }

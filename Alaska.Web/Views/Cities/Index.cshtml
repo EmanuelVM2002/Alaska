@@ -3,39 +3,64 @@
 @{
     ViewData["Title"] = "Index";
 }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Alaska.Web</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/lib/Font-awesome/css/fontawesome.css"/>
+    <link rel="stylesheet" href="~/lib/Font-Awesome/css/regular.min.css">
+    <link rel="stylesheet" href="~/lib/Font-Awesome/css/solid.min.css">
 
-<h1>Index</h1>
-
-<p>
-    <a asp-action="Create">Createkkk New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.NomCiudad)
-            </th>
-            <td>
-                @Html.DisplayNameFor(model => model.RestaurantsNumber)
-            </td>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.NomCiudad)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RestaurantsNumber)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+</head>
+<body>
+    <div class="row">
+        <div class="col-md-12">
+             <div class="panel panel-default">
+                <br />
+                <div class="panel-heading">
+                    <h1 class="panel-title font-weight-bold text-center">Registro de Restaurante Por Ciudades</h1>
+                </div>
+                    <a class="font-weight-bold btn btn-warning" asp-action="Create">Agregar Nuevo Restaurante</a>
+                <br />
+                    <div class="panel-body">
+                        <table class="table table-hover table-striped table-bordered">
+                            <thead class="thead-dark">
+                                <tr class="text-center">
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.NomCiudad)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.RestaurantsNumber)
+                                    </th>
+                                    <th>
+                                        CAMBIOS
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model) {
+                                <tr class="text-center">
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.NomCiudad)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.RestaurantsNumber)
+                                    </td>
+                                    <td>
+                                        <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.Id"><i class="fa-solid fa-pen-to-square"></i></a>                                      
+                                        <a class="btn btn-danger"  asp-action="Delete" asp-route-id="@item.Id"><i class="fa-solid fa-trash-can"></i></a>
+                                        <a class="btn btn-success" asp-action="Details" asp-route-id="@item.Id"><i class="fa-solid fa-circle-question"></i></a>
+                                    </td>
+                                </tr>
+                        }
+                            </tbody>
+                        </table>
+                    </div>
+             </div>
+        </div>
+    </div>
+</body>
