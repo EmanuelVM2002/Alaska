@@ -30,7 +30,7 @@ namespace Alaska.Web.Data.Entities
         //TODO: Pending to put the correct paths
         [Display(Name = "Image")]
         public string ImageFullPath => ImageId == Guid.Empty
-            ? $"https://alaskaweb20220519144510.azurewebsites.net"
+            ? $"https://alaskaweb2.azurewebsites.net"
             : $"https://alaskdemo.blob.core.windows.net/users/{ImageId}";
 
         [Display(Name = "User Type")]

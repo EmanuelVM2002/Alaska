@@ -28,6 +28,8 @@ namespace Alaska.Web.Models
 
         public Category Category { get; set; }
 
+        public ICollection<ProductCategory> ProductCategories { get; set; }
+
         public ICollection<ProductImage> ProductImages { get; set; }
 
         [DisplayName("Product Images Number")]
@@ -36,7 +38,7 @@ namespace Alaska.Web.Models
         //TO DO: Pendiente cambiar los paths por los de Azure	
         [Display(Name = "Image")]
         public string ImageFullPath => ProductImages == null || ProductImages.Count == 0
-        ? $"https://alaskaweb20220519144510.azurewebsites.net"
+        ? $"https://alaskaweb2.azurewebsites.net"
         : ProductImages.FirstOrDefault().ImageFullPath;
     }
 }

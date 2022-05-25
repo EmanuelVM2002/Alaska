@@ -7,7 +7,7 @@
   "parameters": {
     "resourceGroupName": {
       "type": "string",
-      "defaultValue": "Alaska",
+      "defaultValue": "AlaskaWeb20220525134152ResourceGroup",
       "metadata": {
         "description": "Name of the resource group for the resource. It is recommended to put resources under same resource group for better tracking."
       }
@@ -21,7 +21,7 @@
     },
     "resourceName": {
       "type": "string",
-      "defaultValue": "AlaskaWeb20220519144510",
+      "defaultValue": "AlaskaWeb2",
       "metadata": {
         "description": "Name of the main resource to be created by this template."
       }

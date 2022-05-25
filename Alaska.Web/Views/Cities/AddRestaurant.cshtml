@@ -1,11 +1,10 @@
 ﻿@model Alaska.Web.Models.Restaurant
 
 @{
-ViewData["Title"] = "Add Restaurant";
+ViewData["Title"] = "Nuevo Restaurante";
 }
 
 <h2>Add</h2>
-
 <h4>Restaurant</h4>
 <hr />
 <div class="row">
@@ -15,8 +14,8 @@ ViewData["Title"] = "Add Restaurant";
             <input type="hidden" asp-for="IdCity" />
             <partial name="_Restaurant" />
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-                <a asp-action="Details" asp-route-id="@Model.IdCity" class="btn btn-success">Back to List</a>
+                <input type="submit" value="Guardar" class="font-weight-bold btn btn-primary" />
+                <a class="font-weight-bold btn btn-warning" asp-action="Details" asp-route-id="@Model.IdCity"><i class="fa-solid fa-circle-arrow-left"></i> Volver a Restaurantes</a>
             </div>
         </form>
     </div>
@@ -27,3 +26,4 @@ ViewData["Title"] = "Add Restaurant";
 Html.RenderPartialAsync("_ValidationScriptsPartial");}
 
 }
+font-weight-bold

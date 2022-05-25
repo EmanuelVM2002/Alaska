@@ -200,6 +200,29 @@ namespace Alaska.Web.Migrations
                     b.ToTable("Products");
                 });
 
+            modelBuilder.Entity("Alaska.Web.Models.ProductCategory", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int?>("CategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ProductId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("ProductCategory");
+                });
+
             modelBuilder.Entity("Alaska.Web.Models.ProductImage", b =>
                 {
                     b.Property<Guid>("Id")
@@ -399,6 +422,21 @@ namespace Alaska.Web.Migrations
                     b.Navigation("Category");
                 });
 
+            modelBuilder.Entity("Alaska.Web.Models.ProductCategory", b =>
+                {
+                    b.HasOne("Alaska.Web.Models.Category", "Category")
+                        .WithMany()
+                        .HasForeignKey("CategoryId");
+
+                    b.HasOne("Alaska.Web.Models.Product", "Product")
+                        .WithMany("ProductCategories")
+                        .HasForeignKey("ProductId");
+
+                    b.Navigation("Category");
+
+                    b.Navigation("Product");
+                });
+
             modelBuilder.Entity("Alaska.Web.Models.ProductImage", b =>
                 {
                     b.HasOne("Alaska.Web.Models.Product", null)
@@ -471,6 +509,8 @@ namespace Alaska.Web.Migrations
 
             modelBuilder.Entity("Alaska.Web.Models.Product", b =>
                 {
+                    b.Navigation("ProductCategories");
+
                     b.Navigation("ProductImages");
                 });
 #pragma warning restore 612, 618

@@ -1,7 +1,100 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model IEnumerable<Alaska.Web.Models.ProductsHomeViewModel>
+
+@{
+    ViewData["Title"] = "Index";
 }
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/lib/Font-awesome/css/fontawesome.css"/>
+    <link rel="stylesheet" href="~/lib/Font-Awesome/css/regular.min.css">
+    <link rel="stylesheet" href="~/lib/Font-Awesome/css/solid.min.css">
 
+</head>
 <body background="https://img.freepik.com/foto-gratis/fondo-navidad-nieve_1048-3135.jpg?w=2000">
-
+    @foreach (var item in Model)
+    {
+        <div class="row">
+            @if (item.Product1 != null)
+            {
+                <div class="col-md-3">
+                    <div class="card">
+                        <div class="card_title">@item.Product1.Name</div>
+                        <div class="card_body">
+                            <img src="@item.Product1.ImageFullPath" style="height:150px; max-width:280px;" />
+                            <p class="mt-2">
+                                @item.Product1.Description
+                                <h4>@Html.DisplayFor(modelItem => item.Product1.Price)</h4>
+                            </p>
+                        </div>
+                        <div class="card_foot">
+                            <a asp-action="Details" asp-route-id="@item.Product1.Id" class="btn btn-secondary">Detalles</a>
+                            <a asp-action="Add" asp-route-id="@item.Product1.Id" class="btn btn-primary">Agregar</a>
+                        </div>
+                    </div>
+                </div>
+            }
+            @if (item.Product2 != null)
+            {
+                <div class="col-md-3">
+                    <div class="card">
+                        <div class="card_title">@item.Product2.Name</div>
+                        <div class="card_body">
+                            <img src="@item.Product2.ImageFullPath" style="height:150px; max-width:280px;" />
+                            <p class="mt-2">
+                                @item.Product2.Description
+                                <h4>@Html.DisplayFor(modelItem => item.Product2.Price)</h4>
+                            </p>
+                        </div>
+                        <div class="card_foot">
+                            <a asp-action="Details" asp-route-id="@item.Product1.Id" class="btn btn-secondary">Detalles</a>
+                            <a asp-action="Add" asp-route-id="@item.Product1.Id" class="btn btn-primary">Agregar</a>
+                        </div>
+                    </div>
+                </div>
+            }
+            @if (item.Product3 != null)
+            {
+                <div class="col-md-3">
+                    <div class="card">
+                        <div class="card_title">@item.Product3.Name</div>
+                        <div class="card_body">
+                            <img src="@item.Product3.ImageFullPath" style="height:150px; max-width:280px;" />
+                            <p class="mt-2">
+                                @item.Product3.Description
+                                <h4>@Html.DisplayFor(modelItem => item.Product3.Price)</h4>
+                            </p>
+                        </div>
+                        <div class="card_foot">
+                            <a asp-action="Details" asp-route-id="@item.Product1.Id" class="btn btn-secondary">Detalles</a>
+                            <a asp-action="Add" asp-route-id="@item.Product1.Id" class="btn btn-primary">Agregar</a>
+                        </div>
+                    </div>
+                </div>
+            }
+            @if (item.Product4 != null)
+            {
+                <div class="col-md-3">
+                    <div class="card">
+                        <div class="card_title">@item.Product4.Name</div>
+                        <div class="card_body">
+                            <img src="@item.Product4.ImageFullPath" style="height:150px; max-width:280px;" />
+                            <p class="mt-2">
+                                @item.Product4.Description
+                                <h4>@Html.DisplayFor(modelItem => item.Product4.Price)</h4>
+                            </p>
+                        </div>
+                        <div class="card_foot">
+                            <a asp-action="Details" asp-route-id="@item.Product1.Id" class="btn btn-secondary">Detalles</a>
+                            <a asp-action="Add" asp-route-id="@item.Product1.Id" class="btn btn-primary">Agregar</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
 </body>
