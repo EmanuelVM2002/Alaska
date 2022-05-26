@@ -22,7 +22,7 @@ namespace Alaska.Web.Helpers
             List<SelectListItem> list = _context.Categories.Select(t => new SelectListItem
             {
                 Text = t.Name,
-                Value = $"{t.Id}"
+                Value = t.Id.ToString()
             })
                 .OrderBy(t => t.Text)
                 .ToList();
@@ -47,7 +47,7 @@ namespace Alaska.Web.Helpers
                 list = city.Restaurants.Select(t => new SelectListItem
                 {
                     Text = t.NomRestaurante,
-                    Value = $"{t.Id}"
+                    Value = t.Id.ToString()
                 })
                     .OrderBy(t => t.Text)
                     .ToList();

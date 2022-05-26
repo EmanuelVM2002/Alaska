@@ -4,26 +4,33 @@
 ViewData["Title"] = "Nuevo Restaurante";
 }
 
-<h2>Add</h2>
-<h4>Restaurant</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="AddRestaurant">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="IdCity" />
-            <partial name="_Restaurant" />
-            <div class="form-group">
-                <input type="submit" value="Guardar" class="font-weight-bold btn btn-primary" />
-                <a class="font-weight-bold btn btn-warning" asp-action="Details" asp-route-id="@Model.IdCity"><i class="fa-solid fa-circle-arrow-left"></i> Volver a Restaurantes</a>
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/lib/Font-awesome/css/fontawesome.css"/>
+    <link rel="stylesheet" href="~/lib/Font-Awesome/css/regular.min.css">
+    <link rel="stylesheet" href="~/lib/Font-Awesome/css/solid.min.css">
+
+</head>
+<body background="http://www.defondos.com/images/wallpapers/fondo%20azul%20mar%20blue%20wallpaper%20(46)-829110_800.jpeg">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-7" align="center">
+            <div>
+                <h1 class="text-center font-weight-bold">Crear Nuevo Restaurante</h1>
             </div>
-        </form>
+            <form asp-action="AddRestaurant">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="IdCity" />
+                <partial name="_Restaurant" />
+                <div class="form-group">
+                    <input type="submit" value="Guardar" class="font-weight-bold btn btn-primary" />
+                    <a class="font-weight-bold btn btn-warning" asp-action="Details" asp-route-id="@Model.IdCity"><i class="fa-solid fa-circle-arrow-left"></i> Volver a Restaurantes</a>
+                </div>
+            </form>
+        </div>
     </div>
-</div>
-
-@section Scripts {
-@{await 
-Html.RenderPartialAsync("_ValidationScriptsPartial");}
-
-}
-font-weight-bold
+</body>

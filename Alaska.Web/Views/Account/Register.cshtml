@@ -53,16 +53,16 @@
                     url: '@Url.Action("GetRestaurants")',
                     dataType: 'json',
                     data: { countryId: $("#CityId").val() },
+                    debugger;
                     success: function (restaurants) {
                         $.each(restaurants, function (i, restaurant) {
-                            debugger;
                             $("#RestaurantId").append('<option value="'
                                 + restaurant.id + '">'
                                 + restaurant.name + '</option>');
                         });
                     },
                     error: function (ex) {
-                        alert('Failed to retrieve restaurants.' + ex);
+                        alert('Faileds to retrieve restaurants.' + ex);
                     }
                 });
                 return false;
