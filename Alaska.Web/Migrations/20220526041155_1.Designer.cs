@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Alaska.Web.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220525203814_1")]
+    [Migration("20220526041155_1")]
     partial class _1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

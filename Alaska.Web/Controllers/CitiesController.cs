@@ -187,7 +187,6 @@ namespace Alaska.Web.Controllers
             {
                 return NotFound();
             }
-
             Restaurant model = new Restaurant { IdCity = city.Id };
             return View(model);
         }
@@ -200,7 +199,8 @@ namespace Alaska.Web.Controllers
             {
                 City city = await _context.City
                 .Include(c => c.Restaurants)
-                .FirstOrDefaultAsync(c => c.Id == restaurant.IdCity);
+                //IdCity
+                .FirstOrDefaultAsync(c => c.Id == restaurant.Id);
                 if (city == null)
                 {
                     return NotFound();

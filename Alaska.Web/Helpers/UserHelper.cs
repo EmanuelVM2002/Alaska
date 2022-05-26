@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Alaska.Web.Data;
 using Alaska.Web.Data.Entities;
 using Alaska.Web.Models;
+using Alaska.Web.Enums;
 
 namespace Alaska.Web.Helpers
 {
@@ -76,6 +77,34 @@ namespace Alaska.Web.Helpers
         {
             return await _userManager.IsInRoleAsync(user, roleName);
         }
+
+        public async Task<User> AddUserAsync(AddUserViewModel model, Guid imageId, UserType userType)
+        {
+            User user = new User
+            {
+                Address = model.Address,
+                Document = model.Document,
+                Email = model.Username,
+                FirstName = model.FirstName,
+                LastName = model.LastName,
+                ImageId = imageId,
+                PhoneNumber = model.PhoneNumber,
+                City = await _context.City.FindAsync(model.CityId),
+                UserName = model.Username,
+                UserType = userType
+            };
+
+            IdentityResult result = await _userManager.CreateAsync(user, model.Password);
+            if (result != IdentityResult.Success)
+            {
+                return null;
+            }
+
+            User newUser = await GetUserAsync(model.Username);
+            await AddUserToRoleAsync(newUser, user.UserType.ToString());
+            return newUser;
+        }
+
     }
 
 }
