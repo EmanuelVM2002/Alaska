@@ -12,6 +12,7 @@ namespace Alaska.Web.Models
         [Display(Name = "Nombre del Restaurante")]
         public string NomRestaurante { set; get; }
         [JsonIgnore]
+        [NotMapped]
         public int IdCity { get; set; }
     }
 }
