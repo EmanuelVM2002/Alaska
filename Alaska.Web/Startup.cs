@@ -53,13 +53,21 @@ namespace Alaska.Web
 
             services.AddIdentity<User, IdentityRole>(cfg =>
             {
+                cfg.Tokens.AuthenticatorTokenProvider = TokenOptions.DefaultAuthenticatorProvider;
+                cfg.SignIn.RequireConfirmedEmail = true;
                 cfg.User.RequireUniqueEmail = true;
                 cfg.Password.RequireDigit = false;
                 cfg.Password.RequiredUniqueChars = 0;
                 cfg.Password.RequireLowercase = false;
                 cfg.Password.RequireNonAlphanumeric = false;
                 cfg.Password.RequireUppercase = false;
-            }).AddEntityFrameworkStores<ApplicationDbContext>();
+                cfg.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(1);
+                cfg.Lockout.MaxFailedAccessAttempts = 3;
+                cfg.Lockout.AllowedForNewUsers = true;
+
+            })  
+                .AddDefaultTokenProviders()
+                .AddEntityFrameworkStores<ApplicationDbContext>();
                 
             services.AddAuthentication()
                 .AddCookie()
@@ -77,6 +85,7 @@ namespace Alaska.Web
             services.AddScoped<IConverterHelper, ConverterHelper>();
             services.AddScoped<ICombosHelper, CombosHelper>();
             services.AddScoped<IUserHelper, UserHelper>();
+            services.AddScoped<IMailHelper, MailHelper>();
             services.AddControllersWithViews();
             services.AddAzureClients(builder =>
             {

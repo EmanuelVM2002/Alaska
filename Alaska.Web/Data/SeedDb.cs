@@ -60,6 +60,9 @@ namespace Alaska.Web.Data
                 };
                 await _userHelper.AddUserAsync(user, "E3017759082");
                 await _userHelper.AddUserToRoleAsync(user, userType.ToString());
+
+                string token = await _userHelper.GenerateEmailConfirmationTokenAsync(user);
+                await _userHelper.ConfirmEmailAsync(user, token);
             }
             return user;
         }

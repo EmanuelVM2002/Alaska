@@ -45,7 +45,7 @@ namespace Alaska.Web.Helpers
                 model.Username,
                 model.Password,
                 model.RememberMe,
-                false);
+                true);
         }
 
         public async Task LogoutAsync()
@@ -121,6 +121,17 @@ namespace Alaska.Web.Helpers
         {
             return await _userManager.UpdateAsync(user);
         }
+
+        public async Task<IdentityResult> ConfirmEmailAsync(User user, string token)
+        {
+            return await _userManager.ConfirmEmailAsync(user, token);
+        }
+
+        public async Task<string> GenerateEmailConfirmationTokenAsync(User user)
+        {
+            return await _userManager.GenerateEmailConfirmationTokenAsync(user);
+        }
+
     }
 
 }
