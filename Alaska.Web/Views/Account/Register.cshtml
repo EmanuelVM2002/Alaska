@@ -41,31 +41,3 @@
     </div>
 </div>
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $("#CityId").change(function () {
-                $("#RestaurantId").empty();
-                $("#RestaurantId").append('<option value="0">[Select a restaurante...]</option>');
-                $.ajax({
-                    type: 'POST',
-                    url: '@Url.Action("GetRestaurants")',
-                    dataType: 'json',
-                    data: { countryId: $("#CityId").val() },
-                    success: function (restaurants) {
-                        $.each(restaurants, function (i, restaurant) {
-                            $("#RestaurantId").append('<option value="'
-                                + restaurant.id + '">'
-                                + restaurant.name + '</option>');
-                        });
-                    },
-                    error: function (ex) {
-                        alert('Faileds to retrieve restaurants.' + ex);
-                    }
-                });
-                return false;
-            })
-        });
-    </script>
-}

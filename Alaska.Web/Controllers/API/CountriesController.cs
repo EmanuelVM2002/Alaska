@@ -14,12 +14,6 @@ namespace Alaska.Web.Controllers.API
             _context = context;
         }
 
-        [HttpGet]
-        public IActionResult GetCity()
-        {
-            return Ok(_context.City
-                .Include(c => c.Restaurants));
-        }
     }
 
 }

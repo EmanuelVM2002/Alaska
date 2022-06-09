@@ -36,32 +36,6 @@ namespace Alaska.Web.Helpers
             return list;
         }
 
-        public IEnumerable<SelectListItem> GetComboRestaurants(int cityId)
-        {
-            List<SelectListItem> list = new List<SelectListItem>();
-            City city = _context.City
-                .Include(d => d.Restaurants)
-                .FirstOrDefault(d => d.Id == cityId);
-            if (city != null)
-            {
-                list = city.Restaurants.Select(t => new SelectListItem
-                {
-                    Text = t.NomRestaurante,
-                    Value = t.Id.ToString()
-                })
-                    .OrderBy(t => t.Text)
-                    .ToList();
-            }
-
-            list.Insert(0, new SelectListItem
-            {
-                Text = "[Select a restaurante...]",
-                Value = "0"
-            });
-
-            return list;
-        }
-
         public IEnumerable<SelectListItem> GetComboCities()
         {
             List<SelectListItem> list = _context.City.Select(t => new SelectListItem

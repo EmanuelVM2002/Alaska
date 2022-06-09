@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Alaska.Web.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220526041155_1")]
+    [Migration("20220609060306_1")]
     partial class _1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -253,9 +253,6 @@ namespace Alaska.Web.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<int?>("CityId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("IdCity")
                         .HasColumnType("int");
 
                     b.Property<string>("NomRestaurante")

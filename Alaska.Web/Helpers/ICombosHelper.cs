@@ -7,7 +7,6 @@ namespace Alaska.Web.Helpers
     {
         IEnumerable<SelectListItem> GetComboCategories();
         IEnumerable<SelectListItem> GetComboCities();
-        IEnumerable<SelectListItem> GetComboRestaurants(int CityId);
 
     }
 

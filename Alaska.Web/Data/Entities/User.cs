@@ -35,7 +35,6 @@ namespace Alaska.Web.Data.Entities
 
         [Display(Name = "User Type")]
         public UserType UserType { get; set; }
-
         public City City { get; set; }
 
         [Display(Name = "User")]

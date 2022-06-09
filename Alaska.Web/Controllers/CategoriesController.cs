@@ -9,7 +9,9 @@ namespace Alaska.Web.Controllers
     using Alaska.Web.Data;
     using Alaska.Web.Helpers;
     using Alaska.Web.Models;
+    using Microsoft.AspNetCore.Authorization;
 
+    [Authorize(Roles = "Admin")]
     public class CategoriesController : Controller
     {
         private readonly ApplicationDbContext _context;

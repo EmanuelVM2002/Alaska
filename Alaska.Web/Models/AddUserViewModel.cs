@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Alaska.Web.Enums;
+using System.ComponentModel.DataAnnotations;
 
 namespace Alaska.Web.Models
 {
@@ -22,6 +23,7 @@ namespace Alaska.Web.Models
         [StringLength(20, MinimumLength = 6, ErrorMessage = "The {0} field must contain between {2} and {1} characters.")]
         [Compare("Password")]
         public string PasswordConfirm { get; set; }
+
     }
 
 }

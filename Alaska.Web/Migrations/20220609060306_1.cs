@@ -138,7 +138,6 @@ namespace Alaska.Web.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     NomRestaurante = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    IdCity = table.Column<int>(type: "int", nullable: false),
                     CityId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>

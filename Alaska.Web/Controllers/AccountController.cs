@@ -6,6 +6,7 @@ using Alaska.Web.Helpers;
 using Alaska.Web.Enums;
 using Alaska.Web.Data.Entities;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 
 namespace Alaska.Web.Controllers
 {
@@ -71,8 +72,7 @@ namespace Alaska.Web.Controllers
         {
             AddUserViewModel model = new AddUserViewModel
             {
-                Cities = _combosHelper.GetComboCities(),
-                Restaurants = _combosHelper.GetComboRestaurants(0),
+                Cities = _combosHelper.GetComboCities()
             };
 
             return View(model);
@@ -96,7 +96,6 @@ namespace Alaska.Web.Controllers
                 {
                     ModelState.AddModelError(string.Empty, "This email is already used.");
                     model.Cities = _combosHelper.GetComboCities();
-                    model.Restaurants = _combosHelper.GetComboRestaurants(model.CityId);
                     return View(model);
                 }
 
@@ -115,25 +114,96 @@ namespace Alaska.Web.Controllers
                 }
             }
             model.Cities = _combosHelper.GetComboCities();
-            model.Restaurants = _combosHelper.GetComboRestaurants(model.CityId);
             return View(model);
         }
 
-        public JsonResult GetRestaurants(int citytId)
+        public async Task<IActionResult> ChangeUser()
         {
-            City city = _context.City
-                .Include(d => d.Restaurants)
-                .FirstOrDefault(d => d.Id == citytId);
-            if (city == null)
+            User user = await _userHelper.GetUserAsync(User.Identity.Name);
+            if (user == null)
             {
-                return null;
+                return NotFound();
             }
 
-            return Json(city.Restaurants.OrderBy(c => c.NomRestaurante));
+            EditUserViewModel model = new()
+            {
+                Address = user.Address,
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                PhoneNumber = user.PhoneNumber,
+                ImageId = user.ImageId,
+                CityId = user.City.Id,
+                Id = user.Id,
+                Document = user.Document
+            };
+
+            model.Cities = _combosHelper.GetComboCities();
+            return View(model);
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ChangeUser(EditUserViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                Guid imageId = model.ImageId;
+
+                if (model.ImageFile != null)
+                {
+                    imageId = await _blobHelper.UploadBlobAsync(model.ImageFile, "users");
+                }
+
+                User user = await _userHelper.GetUserAsync(User.Identity.Name);
+
+                user.FirstName = model.FirstName;
+                user.LastName = model.LastName;
+                user.Address = model.Address;
+                user.PhoneNumber = model.PhoneNumber;
+                user.ImageId = imageId;
+                user.City = await _context.City.FindAsync(model.CityId);
+                user.Document = model.Document;
+
+                await _userHelper.UpdateUserAsync(user);
+                return RedirectToAction("Index", "Home");
+            }
+            model.Cities = _combosHelper.GetComboCities();
+            return View(model);
+        }
+
+        public IActionResult ChangePassword()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ChangePassword(ChangePasswordViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = await _userHelper.GetUserAsync(User.Identity.Name);
+                if (user != null)
+                {
+                    IdentityResult? result = await _userHelper.ChangePasswordAsync(user, model.OldPassword, model.NewPassword);
+                    if (result.Succeeded)
+                    {
+                        return RedirectToAction("ChangeUser");
+                    }
+                    else
+                    {
+                        ModelState.AddModelError(string.Empty, result.Errors.FirstOrDefault().Description);
+                    }
+                }
+                else
+                {
+                    ModelState.AddModelError(string.Empty, "Usuario no encontrado");
+                }
+            }
+
+            return View(model);
+        }
+
+
     }
-
-
 }
 
