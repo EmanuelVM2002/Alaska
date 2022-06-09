@@ -25,7 +25,6 @@ namespace Alaska.Web.Data
             await CheckCitiesAsync();
             await CheckRolesAsync();
             await CheckUserAsync("1000761254", "Emanuel", "Villada", "emanuelvillada10@gmail.com", "3017759082", "Calle GG", UserType.Admin);
-            await CheckUserAsync("43522855", "Siomara", "Muñeton", "marinsiomara@gmail.com", "3007279812", "Calle GG", UserType.User);
 
         }
         private async Task CheckRolesAsync()

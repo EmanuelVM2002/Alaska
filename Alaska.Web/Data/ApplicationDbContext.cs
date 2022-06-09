@@ -35,6 +35,7 @@ namespace Alaska.Web
         public DbSet<Restaurant> Restaurant { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductImage> ProductImages { get; set; }
+        public DbSet<TemporalSale> TemporalSales { get; set; }
 
     }
 }

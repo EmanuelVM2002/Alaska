@@ -1,5 +1,4 @@
-﻿@model IEnumerable<Alaska.Web.Models.ProductsHomeViewModel>
-
+﻿@model Alaska.Web.Models.HomeViewModel
 @{
     ViewData["Title"] = "Index";
 }
@@ -50,7 +49,12 @@
     </div>
     <br />
     <br />
-    @foreach (var item in Model)
+
+    @if(Model.Quantity > 0)
+    {
+        <a asp-action="ShowCart" class="btn btn-outline-primary">Ver Carro de Compras (@Model.Quantity)</a>
+    }
+    @foreach (var item in Model.Products)
     {
         <div class="row">
             @if (item.Product1 != null)
@@ -59,7 +63,7 @@
                     <div class="card">
                         <div class="card_title text-center font-weight-bold">@item.Product1.Name</div>
                         <div class="card_body" style="text-align: center;">
-                            <img src="@item.Product1.ImageFullPath" style="height:200px; max-width:500px;" />
+                            <img src="@item.Product1.ImageFullPath" style="width:100px;" />
                             <p class="mt-0 text-center">
                                 @item.Product1.Description
                                 <h4>@Html.DisplayFor(modelItem => item.Product1.Price)</h4>
@@ -85,8 +89,8 @@
                             </p>
                         </div>
                         <div class="card_foot">
-                            <a asp-action="Details" asp-route-id="@item.Product1.Id" class="btn btn-secondary">Detalles</a>
-                            <a asp-action="Add" asp-route-id="@item.Product1.Id" class="btn btn-primary">Agregar</a>
+                            <a asp-action="Details" asp-route-id="@item.Product2.Id" class="btn btn-secondary">Detalles</a>
+                            <a asp-action="Add" asp-route-id="@item.Product2.Id" class="btn btn-primary">Agregar</a>
                         </div>
                     </div>
                 </div>
@@ -104,8 +108,8 @@
                             </p>
                         </div>
                         <div class="card_foot">
-                            <a asp-action="Details" asp-route-id="@item.Product1.Id" class="btn btn-secondary">Detalles</a>
-                            <a asp-action="Add" asp-route-id="@item.Product1.Id" class="btn btn-primary">Agregar</a>
+                            <a asp-action="Details" asp-route-id="@item.Product3.Id" class="btn btn-secondary">Detalles</a>
+                            <a asp-action="Add" asp-route-id="@item.Product3.Id" class="btn btn-primary">Agregar</a>
                         </div>
                     </div>
                 </div>
@@ -123,8 +127,8 @@
                             </p>
                         </div>
                         <div class="card_foot">
-                            <a asp-action="Details" asp-route-id="@item.Product1.Id" class="btn btn-secondary">Detalles</a>
-                            <a asp-action="Add" asp-route-id="@item.Product1.Id" class="btn btn-primary">Agregar</a>
+                            <a asp-action="Details" asp-route-id="@item.Product4.Id" class="btn btn-secondary">Detalles</a>
+                            <a asp-action="Add" asp-route-id="@item.Product4.Id" class="btn btn-primary">Agregar</a>
                         </div>
                     </div>
                 </div>
